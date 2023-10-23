@@ -52,8 +52,8 @@ def register_user(request):
 def customer_record(request, pk):
     if request.user.is_authenticated:
         #look up record
-        customer_record = Record.objects.get(id=pk)
-        return render(request, 'record.html', {'cudtomer_record': customer_record})
+        customer_record1 = Record.objects.get(id=pk)
+        return render(request, 'record.html', {'customer_record': customer_record1})
     else:
         messages.success(request, "You Must Be Logged In!")
         return redirect('home')
