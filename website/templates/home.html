@@ -22,7 +22,7 @@
       <tbody>
           {% if records %}
               {% for record in records %}
-              <tr>
+              <tr class='clickable' onclick="location.href = '{% url 'record' record.id %}'" >
                 <td><a href="{% url 'record' record.id %}" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{record.id}}</a></td>
                 <td>{{record.first_name}} {{record.last_name}}</td>
                 <td>{{record.email}}</td>
