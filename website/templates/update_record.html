@@ -3,16 +3,17 @@
 
 <divv class='col-md-6 offset-md-3'>
 
-    <form method="POST"  >
+    <form method="POST" action="{% url 'update_record' pk %}" >
         {% csrf_token %}
         {{ form.as_p }}
 
         <br/>
         <a href="{% url 'home' %}" class='btn btn-secondary' >Back</a>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Update</button>
 
     </form>
 
 </div>
 
 {% endblock content %}
+<!--action="{% url 'update_record' customer_record.id %}"-->
