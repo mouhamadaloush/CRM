@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR/".eVar", ".env"))
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,7 +27,7 @@ load_dotenv(os.path.join(BASE_DIR/".eVar", ".env"))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG")
+DEBUG = os.environ.get("DEBUG")=='True'
 
 ALLOWED_HOSTS = []
 ALLOWED_HOSTS += os.environ.get("ALLOWED_HOSTS").split()
@@ -89,9 +90,9 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-DATABASES["default"] = dj_database_url.config(
-    default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
-)
+#DATABASES["default"] = dj_database_url.config(
+#    default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
+#)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
