@@ -90,7 +90,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-DATABASES ["default"] = {
+DATABASES ["default"] = dj_database_url.config()
+""" {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'verceldb', 
         'USER': 'default',
@@ -98,7 +99,7 @@ DATABASES ["default"] = {
         'HOST': 'ep-white-mode-47178055-pooler.us-east-1.postgres.vercel-storage.com', 
         'PORT': '',
         'OPTIONS': {'sslmode': 'require'},
-}
+} """
 #DATABASES["default"] = dj_database_url.config(
 #    default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
 #)
